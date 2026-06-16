@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import qcLogo from "@/assets/qc-logo.png.asset.json";
 
 const NAV = [
   { label: "Home", to: "/" as const },
@@ -15,9 +16,11 @@ const NAV = [
 function Logo() {
   return (
     <span className="flex items-center gap-2">
-      <span className="grid h-8 w-8 place-items-center rounded-md bg-ink text-parchment">
-        <span className="font-display text-lg font-bold leading-none">Q</span>
-      </span>
+      <img
+        src={qcLogo.url}
+        alt="QuickCatch logo"
+        className="h-8 w-auto object-contain"
+      />
       <span className="font-display text-xl font-semibold tracking-tight">
         Quick<span className="text-marigold">Catch</span>
       </span>
