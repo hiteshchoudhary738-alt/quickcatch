@@ -15,10 +15,8 @@ export const Route = createFileRoute("/faculty")({
 });
 
 const FACULTY = [
-  { name: "Dr. Evelyn Vance", title: "Associate Professor, Computer Science", field: "AI & Machine Learning", bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.", tags: ["Deep Learning", "NLP", "Alignment"], initials: "EV" },
-  { name: "Prof. Marcus Chen", title: "Design Faculty, HCI Lab", field: "UI/UX & Interaction Design", bio: "Twenty years across IDEO and Adobe. Mentors students bridging design systems and front-end architecture.", tags: ["Design Systems", "Prototyping", "Accessibility"], initials: "MC" },
-  { name: "Dr. Sarah Jenkins", title: "Senior Lecturer, Data Engineering", field: "Big Data & Analytics", bio: "Former staff engineer at Snowflake. Curates the data-pipeline and analytics modules end-to-end.", tags: ["Spark", "Warehousing", "ETL"], initials: "SJ" },
-  { name: "Dr. Ravi Kumar", title: "Professor, Systems Engineering", field: "Distributed Systems", bio: "Researches consensus algorithms and edge compute. Advises the systems and infrastructure track.", tags: ["Distributed", "OS", "Performance"], initials: "RK" },
+  { name: "Dr. Manish Bhanu", title: "Assistant Professor, Computer Science, RGIPT", field: "AI & Machine Learning", bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.", tags: ["Deep Learning", "NLP", "Alignment"], initials: "MB" },
+  { name: "Dr. Saswata Roy", title: "Assistant Professor, Information Technology, IIITM", field: "AI & Machine Learning", bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.", tags: ["Deep Learning", "NLP", "Alignment"], initials: "SR" },
 ];
 
 function Faculty() {

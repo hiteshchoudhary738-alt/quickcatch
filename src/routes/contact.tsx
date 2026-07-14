@@ -60,8 +60,8 @@ function Contact() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-marigold" />
                 <div>
-                  <div className="font-medium">Block C, Innovation Hall</div>
-                  <div className="text-muted-foreground">Open hours: Tue & Thu, 4–6pm</div>
+                  <div className="font-medium">G-708, RGIPT</div>
+                  <div className="text-muted-foreground">Open hours: Mon-Sat, 4–6pm</div>
                 </div>
               </li>
             </ul>
@@ -71,8 +71,8 @@ function Contact() {
             className="rounded-2xl border border-border bg-card p-8 md:col-span-7"
           >
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="First name"><Input required placeholder="Alex" /></Field>
-              <Field label="Last name"><Input required placeholder="Ramirez" /></Field>
+              <Field label="First name"><Input required placeholder="Ramesh" /></Field>
+              <Field label="Last name"><Input required placeholder="Sharma" /></Field>
               <Field label="Email" className="sm:col-span-2"><Input required type="email" placeholder="you@university.edu" /></Field>
               <Field label="I'm reaching out as" className="sm:col-span-2">
                 <select className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm">

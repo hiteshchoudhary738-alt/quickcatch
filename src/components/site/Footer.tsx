@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Github } from "lucide-react";
 
 function FooterCol({ title, items }: { title: string; items: string[] }) {
   return (
@@ -32,7 +31,6 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-parchment/15 pt-6 text-xs text-parchment/50 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} QuickCatch Collective. Built by students.</span>
           <div className="flex items-center gap-4">
-            <a href="#" className="inline-flex items-center gap-1.5 hover:text-parchment"><Github className="h-3.5 w-3.5" /> Open source</a>
             <Link to="/contact" className="hover:text-parchment">Contact</Link>
           </div>
         </div>

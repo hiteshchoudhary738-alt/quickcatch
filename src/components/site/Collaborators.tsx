@@ -1,18 +1,11 @@
 import { SectionLabel } from "./SectionLabel";
 
 const COLLABORATORS = [
-  { name: "Stanford University", kind: "University" },
-  { name: "MIT Media Lab", kind: "Research" },
-  { name: "Google Research", kind: "Industry" },
-  { name: "OpenAI", kind: "Industry" },
-  { name: "IIT Bombay", kind: "University" },
-  { name: "Microsoft", kind: "Industry" },
-  { name: "NVIDIA", kind: "Industry" },
-  { name: "ETH Zürich", kind: "University" },
-  { name: "Hugging Face", kind: "Industry" },
-  { name: "Carnegie Mellon", kind: "University" },
-  { name: "Adobe", kind: "Industry" },
-  { name: "Snowflake", kind: "Industry" },
+  { name: "IIITM Gwalior", kind: "University" },
+  { name: "RGIPT Jais", kind: "University" },
+  { name: "HGS Industries", kind: "Industry" },
+  { name: "", kind: "Industry" },
+
 ];
 
 function LogoChip({ name, kind }: { name: string; kind: string }) {
