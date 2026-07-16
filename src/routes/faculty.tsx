@@ -6,7 +6,11 @@ export const Route = createFileRoute("/faculty")({
   head: () => ({
     meta: [
       { title: "Faculty Advisors — QuickCatch" },
-      { name: "description", content: "Meet the professors who curate, sequence, and review every QuickCatch curriculum." },
+      {
+        name: "description",
+        content:
+          "Meet the professors who curate, sequence, and review every QuickCatch curriculum.",
+      },
       { property: "og:title", content: "Faculty Advisors — QuickCatch" },
       { property: "og:description", content: "Professors who actually review the work." },
     ],
@@ -15,8 +19,22 @@ export const Route = createFileRoute("/faculty")({
 });
 
 const FACULTY = [
-  { name: "Dr. Manish Bhanu", title: "Assistant Professor, Computer Science, RGIPT", field: "AI & Machine Learning", bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.", tags: ["Deep Learning", "NLP", "Alignment"], initials: "MB" },
-  { name: "Dr. Saswata Roy", title: "Assistant Professor, Information Technology, IIITM", field: "AI & Machine Learning", bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.", tags: ["Deep Learning", "NLP", "Alignment"], initials: "SR" },
+  {
+    name: "Dr. Manish Bhanu",
+    title: "Assistant Professor, Computer Science, RGIPT",
+    field: "AI & Machine Learning",
+    bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.",
+    tags: ["Deep Learning", "NLP", "Alignment"],
+    initials: "MB",
+  },
+  {
+    name: "Dr. Saswata Roy",
+    title: "Assistant Professor, Information Technology, IIITM",
+    field: "AI & Machine Learning",
+    bio: "Published on transformer interpretability and small-model alignment. Leads the AI/ML curriculum review.",
+    tags: ["Deep Learning", "NLP", "Alignment"],
+    initials: "SR",
+  },
 ];
 
 function Faculty() {
@@ -32,15 +50,20 @@ function Faculty() {
             </h1>
           </div>
           <p className="max-w-md text-muted-foreground">
-            Each curriculum is shaped, sequenced, and signed off by a department advisor
-            with a research and industry track record. No ghost names. No affiliate logos.
+            Each curriculum is shaped, sequenced, and signed off by a department advisor with a
+            research and industry track record. No ghost names. No affiliate logos.
           </p>
         </div>
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           {FACULTY.map((f) => (
-            <article key={f.name} className="group relative flex flex-col gap-5 rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-0.5 hover:border-marigold/40 hover:shadow-[0_20px_50px_-30px_oklch(0.22_0.04_250)]">
+            <article
+              key={f.name}
+              className="group relative flex flex-col gap-5 rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-0.5 hover:border-marigold/40 hover:shadow-[0_20px_50px_-30px_oklch(0.22_0.04_250)]"
+            >
               <div className="flex items-start gap-5">
-                <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-ink font-display text-xl font-semibold text-parchment ring-4 ring-marigold/20">{f.initials}</div>
+                <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-ink font-display text-xl font-semibold text-parchment ring-4 ring-marigold/20">
+                  {f.initials}
+                </div>
                 <div className="min-w-0">
                   <h2 className="font-display text-2xl font-medium">{f.name}</h2>
                   <p className="mt-1 text-sm text-muted-foreground">{f.title}</p>
@@ -50,7 +73,13 @@ function Faculty() {
               <p className="text-sm leading-relaxed text-muted-foreground">{f.bio}</p>
               <div className="flex flex-wrap gap-2">
                 {f.tags.map((t) => (
-                  <Badge key={t} variant="outline" className="border-ink/15 bg-background font-normal text-foreground">{t}</Badge>
+                  <Badge
+                    key={t}
+                    variant="outline"
+                    className="border-ink/15 bg-background font-normal text-foreground"
+                  >
+                    {t}
+                  </Badge>
                 ))}
               </div>
             </article>

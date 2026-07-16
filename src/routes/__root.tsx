@@ -80,10 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "QuickCatch — Student-Run Academic Portal" },
-      { name: "description", content: "Free, faculty-curated curriculums in CS, AI/ML, and engineering. Built by students, for students." },
+      {
+        name: "description",
+        content:
+          "Free, faculty-curated curriculums in CS, AI/ML, and engineering. Built by students, for students.",
+      },
       { name: "author", content: "QuickCatch" },
       { property: "og:title", content: "QuickCatch — Student-Run Academic Portal" },
-      { property: "og:description", content: "Free, faculty-curated curriculums with hands-on projects." },
+      {
+        property: "og:description",
+        content: "Free, faculty-curated curriculums with hands-on projects.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

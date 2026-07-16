@@ -1,12 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { z } from "zod";
-import { ChevronDown, Clock, ArrowRight, Sparkles, Lock, Unlock, Play, FileText, Code2, CheckCircle, Trophy } from "lucide-react";
+import {
+  ChevronDown,
+  Clock,
+  ArrowRight,
+  Sparkles,
+  Lock,
+  Unlock,
+  Play,
+  FileText,
+  Code2,
+  CheckCircle,
+  Trophy,
+} from "lucide-react";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import { useAuth } from "@/lib/auth-context";
 import { fetchCourseProgress, updateCourseProgress } from "@/lib/api/auth.functions";
 import { Button } from "@/components/ui/button";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
+} from "@/components/ui/drawer";
 import { Progress } from "@/components/ui/progress";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -21,7 +41,11 @@ export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
       { title: "Courses — QuickCatch" },
-      { name: "description", content: "Six faculty-curated curriculums in CS, AI/ML, programming languages, and analytics. Zero filler." },
+      {
+        name: "description",
+        content:
+          "Six faculty-curated curriculums in CS, AI/ML, programming languages, and analytics. Zero filler.",
+      },
       { property: "og:title", content: "Courses — QuickCatch" },
       { property: "og:description", content: "Six curriculums. Zero filler. Free to enroll." },
     ],
@@ -48,14 +72,15 @@ export const COURSES: Course[] = [
     duration: "5 weeks",
     weeks: 5,
     department: "Computer Science",
-    overview: "Build fluency in the algorithmic patterns that underpin every technical interview and production system. Weekly problem sets are graded by peers and reviewed by faculty TAs.",
+    overview:
+      "Build fluency in the algorithmic patterns that underpin every technical interview and production system. Weekly problem sets are graded by peers and reviewed by faculty TAs.",
     syllabus: [
       "Complexity, arrays, hashing",
       "Linked lists, stacks, queues, two-pointer technique",
       "Trees, graphs, BFS/DFS",
       "Dynamic programming & greedy strategies",
-      "Capstone: interview-grade problem portfolio"
-    ]
+      "Capstone: interview-grade problem portfolio",
+    ],
   },
   {
     id: "ai",
@@ -64,12 +89,13 @@ export const COURSES: Course[] = [
     duration: "3 weeks",
     weeks: 3,
     department: "Artificial Intelligence",
-    overview: "An applied introduction to supervised learning, neural networks, and modern LLM workflows — finishing with a deployed inference demo.",
+    overview:
+      "An applied introduction to supervised learning, neural networks, and modern LLM workflows — finishing with a deployed inference demo.",
     syllabus: [
       "Linear & logistic regression, gradient descent",
       "Neural nets, backprop, PyTorch fundamentals",
-      "Capstone: fine-tune & deploy a small model"
-    ]
+      "Capstone: fine-tune & deploy a small model",
+    ],
   },
   {
     id: "py",
@@ -78,12 +104,13 @@ export const COURSES: Course[] = [
     duration: "3 weeks",
     weeks: 3,
     department: "Programming Languages",
-    overview: "From syntax to idiomatic, testable Python. Designed for absolute beginners but paced so career-switchers stay engaged.",
+    overview:
+      "From syntax to idiomatic, testable Python. Designed for absolute beginners but paced so career-switchers stay engaged.",
     syllabus: [
       "Syntax, control flow, data structures",
       "Functions, modules, packaging, pytest",
-      "Capstone: CLI tool published to PyPI"
-    ]
+      "Capstone: CLI tool published to PyPI",
+    ],
   },
   {
     id: "java",
@@ -92,13 +119,14 @@ export const COURSES: Course[] = [
     duration: "4 weeks",
     weeks: 4,
     department: "Programming Languages",
-    overview: "OOP, the JVM, and the Spring ecosystem — taught through building a real REST API students can list on their resume.",
+    overview:
+      "OOP, the JVM, and the Spring ecosystem — taught through building a real REST API students can list on their resume.",
     syllabus: [
       "Core Java, collections, generics",
       "OOP & design patterns",
       "Spring Boot fundamentals",
-      "Capstone: deploy a REST service"
-    ]
+      "Capstone: deploy a REST service",
+    ],
   },
   {
     id: "biz",
@@ -107,12 +135,13 @@ export const COURSES: Course[] = [
     duration: "3 weeks",
     weeks: 3,
     department: "Business & Data",
-    overview: "SQL, dashboards, and the soft skill of telling a story with numbers. Built with our partner faculty in the business school.",
+    overview:
+      "SQL, dashboards, and the soft skill of telling a story with numbers. Built with our partner faculty in the business school.",
     syllabus: [
       "SQL for analysts, window functions",
       "Dashboarding with Looker / Metabase",
-      "Capstone: stakeholder-ready insight report"
-    ]
+      "Capstone: stakeholder-ready insight report",
+    ],
   },
   {
     id: "ct",
@@ -121,12 +150,13 @@ export const COURSES: Course[] = [
     duration: "3 weeks",
     weeks: 3,
     department: "Core Engineering",
-    overview: "The pre-requisite no one assigns. Decomposition, abstraction, and pattern recognition — the operating system every engineer runs on.",
+    overview:
+      "The pre-requisite no one assigns. Decomposition, abstraction, and pattern recognition — the operating system every engineer runs on.",
     syllabus: [
       "Decomposition & abstraction",
       "Pattern recognition & algorithmic thinking",
-      "Capstone: model a real-world system"
-    ]
+      "Capstone: model a real-world system",
+    ],
   },
   {
     id: "web-dev",
@@ -135,14 +165,15 @@ export const COURSES: Course[] = [
     duration: "5 weeks",
     weeks: 5,
     department: "Computer Science",
-    overview: "Build modern, responsive web applications using HTML, CSS, JavaScript, React, and modern frontend development best practices.",
+    overview:
+      "Build modern, responsive web applications using HTML, CSS, JavaScript, React, and modern frontend development best practices.",
     syllabus: [
       "HTML and Basic CSS",
       "Advanced CSS",
       "JavaScript",
       "React",
-      "Frontend Projects & Deployment"
-    ]
+      "Frontend Projects & Deployment",
+    ],
   },
   {
     id: "data-analytics",
@@ -151,14 +182,15 @@ export const COURSES: Course[] = [
     duration: "4 weeks",
     weeks: 4,
     department: "Business & Data",
-    overview: "Build practical data skills using Python, SQL, and modern BI tools to turn raw data into business impact.",
+    overview:
+      "Build practical data skills using Python, SQL, and modern BI tools to turn raw data into business impact.",
     syllabus: [
       "Python basics and data manipulation",
       "SQL fundamentals and database querying",
       "Data visualization and reporting",
-      "Capstone: end-to-end analytics project"
-    ]
-  }
+      "Capstone: end-to-end analytics project",
+    ],
+  },
 ];
 
 function Courses() {
@@ -189,7 +221,8 @@ function Courses() {
           <div>
             <SectionLabel>Catalog · Fall</SectionLabel>
             <h1 className="mt-4 font-display text-4xl font-medium leading-tight sm:text-5xl">
-              Six curriculums.<br />
+              Six+ curriculums.
+              <br />
               <span className="italic text-marigold">Zero filler.</span>
             </h1>
           </div>
@@ -210,8 +243,9 @@ function Courses() {
             return (
               <div
                 key={c.id}
-                className={`group grid grid-cols-12 items-center gap-4 px-6 py-5 transition-colors hover:bg-accent/40 ${i !== COURSES.length - 1 ? "border-b border-border" : ""
-                  }`}
+                className={`group grid grid-cols-12 items-center gap-4 px-6 py-5 transition-colors hover:bg-accent/40 ${
+                  i !== COURSES.length - 1 ? "border-b border-border" : ""
+                }`}
               >
                 {/* Clickable details area */}
                 <div
@@ -286,7 +320,7 @@ function Courses() {
 function CourseDrawer({
   course,
   onClose,
-  openInConfirmMode
+  openInConfirmMode,
 }: {
   course: Course | null;
   onClose: () => void;
@@ -376,7 +410,7 @@ function CourseDrawer({
       updated = [...completedWeeks, weekId];
       toast.success(`Great job! Completed Week ${weekIndex + 1}.`);
     }
-    
+
     // Optimistic UI update
     setCompletedWeeks(updated);
 
@@ -430,9 +464,10 @@ function CourseDrawer({
     }
   };
 
-  const percentComplete = course.syllabus.length > 0
-    ? Math.round((completedWeeks.length / course.syllabus.length) * 100)
-    : 0;
+  const percentComplete =
+    course.syllabus.length > 0
+      ? Math.round((completedWeeks.length / course.syllabus.length) * 100)
+      : 0;
 
   return (
     <Drawer open={!!course} onOpenChange={(o) => !o && onClose()}>
@@ -454,13 +489,19 @@ function CourseDrawer({
 
           {showConfirm ? (
             /* Enrollment Confirmation Form */
-            <form onSubmit={handleConfirmEnrollment} className="mt-2 p-5 border border-border bg-card rounded-xl space-y-4">
+            <form
+              onSubmit={handleConfirmEnrollment}
+              className="mt-2 p-5 border border-border bg-card rounded-xl space-y-4"
+            >
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-marigold font-semibold">
                 <Sparkles className="h-4 w-4" /> Finalize Enrollment
               </div>
-              <h4 className="text-lg font-semibold text-foreground mt-1">Confirm Student Details</h4>
+              <h4 className="text-lg font-semibold text-foreground mt-1">
+                Confirm Student Details
+              </h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Confirm your student details to enroll. These will be used for coordinating future announcements, notifications, and coursework.
+                Confirm your student details to enroll. These will be used for coordinating future
+                announcements, notifications, and coursework.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -533,7 +574,8 @@ function CourseDrawer({
                     <div>
                       <h4 className="text-sm font-semibold text-foreground">Cohort Progress</h4>
                       <p className="text-[11px] text-muted-foreground mt-0.5">
-                        {completedWeeks.length} of {course.syllabus.length} weeks finished ({percentComplete}%)
+                        {completedWeeks.length} of {course.syllabus.length} weeks finished (
+                        {percentComplete}%)
                       </p>
                     </div>
                   </div>
@@ -562,10 +604,11 @@ function CourseDrawer({
                     return (
                       <div
                         key={i}
-                        className={`rounded-xl border transition-all ${isEnrolled
+                        className={`rounded-xl border transition-all ${
+                          isEnrolled
                             ? "bg-card border-border/80 hover:border-marigold/30"
                             : "bg-card/40 border-border/40 opacity-80"
-                          }`}
+                        }`}
                       >
                         <button
                           onClick={() => handleWeekClick(i)}
@@ -596,8 +639,11 @@ function CourseDrawer({
                           </div>
 
                           {isEnrolled && (
-                            <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${isExpanded ? "transform rotate-180" : ""
-                              }`} />
+                            <ChevronDown
+                              className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+                                isExpanded ? "transform rotate-180" : ""
+                              }`}
+                            />
                           )}
                         </button>
 
@@ -613,7 +659,9 @@ function CourseDrawer({
                                 </span>
                                 <div>
                                   <p className="font-semibold text-foreground">Lecture Recording</p>
-                                  <p className="text-[9px] text-muted-foreground">Video lesson (45 mins)</p>
+                                  <p className="text-[9px] text-muted-foreground">
+                                    Video lesson (45 mins)
+                                  </p>
                                 </div>
                               </button>
 
@@ -626,7 +674,9 @@ function CourseDrawer({
                                 </span>
                                 <div>
                                   <p className="font-semibold text-foreground">Study Material</p>
-                                  <p className="text-[9px] text-muted-foreground">PDF notes & reading assignments</p>
+                                  <p className="text-[9px] text-muted-foreground">
+                                    PDF notes & reading assignments
+                                  </p>
                                 </div>
                               </button>
 
@@ -639,7 +689,9 @@ function CourseDrawer({
                                 </span>
                                 <div>
                                   <p className="font-semibold text-foreground">Coding Assignment</p>
-                                  <p className="text-[9px] text-muted-foreground">Submit homework exercises</p>
+                                  <p className="text-[9px] text-muted-foreground">
+                                    Submit homework exercises
+                                  </p>
                                 </div>
                               </button>
 
@@ -683,7 +735,10 @@ function CourseDrawer({
                 {user ? (
                   isEnrolled ? (
                     <Button
-                      onClick={() => { unenrollCourse(course.id); onClose(); }}
+                      onClick={() => {
+                        unenrollCourse(course.id);
+                        onClose();
+                      }}
                       className="bg-emerald-600 hover:bg-emerald-700 text-white flex items-center gap-1.5"
                     >
                       Enrolled ✓ <span className="text-xs opacity-85">(Leave Course)</span>
@@ -698,7 +753,10 @@ function CourseDrawer({
                   )
                 ) : (
                   <Button
-                    onClick={() => { openAuthModal("register"); onClose(); }}
+                    onClick={() => {
+                      openAuthModal("register");
+                      onClose();
+                    }}
                     className="bg-ink text-parchment hover:bg-ink/90"
                   >
                     Register to Enroll <ArrowRight className="ml-1 h-4 w-4" />

@@ -6,9 +6,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "QuickCatch — Student-Run Academic Portal" },
-      { name: "description", content: "Free, faculty-curated curriculums in CS, AI/ML, and engineering. Hands-on projects, GitHub-ready, taught alongside university advisors." },
+      {
+        name: "description",
+        content:
+          "Free, faculty-curated curriculums in CS, AI/ML, and engineering. Hands-on projects, GitHub-ready, taught alongside university advisors.",
+      },
       { property: "og:title", content: "QuickCatch — Student-Run Academic Portal" },
-      { property: "og:description", content: "Free, faculty-curated curriculums in CS, AI/ML, and engineering." },
+      {
+        property: "og:description",
+        content: "Free, faculty-curated curriculums in CS, AI/ML, and engineering.",
+      },
     ],
   }),
   component: Home,
@@ -16,7 +23,7 @@ export const Route = createFileRoute("/")({
 
 const STATS = [
   { value: "1,200+", label: "Active students" },
-  { value: "6", label: "Curriculums" },
+  { value: "8", label: "Curriculums" },
   { value: "12", label: "Faculty advisors" },
   { value: "100%", label: "Free to enroll" },
 ];
@@ -30,18 +37,22 @@ function Home() {
           <span>Volume 01 · Fall Cohort Open</span>
         </div>
         <h1 className="mt-6 max-w-5xl font-display text-5xl font-medium leading-[0.95] sm:text-7xl md:text-[5.5rem]">
-          A student-run academy,<br />
-          <span className="italic text-marigold">curated by the faculty</span><br />
+          A student-run academy,
+          <br />
+          <span className="italic text-marigold">curated by the faculty</span>
+          <br />
           you wish you had.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-          QuickCatch bridges classroom theory and shipped work. Free, department-backed
-          curriculums in CS, AI/ML, and engineering — taught alongside the professors
-          who'd otherwise gatekeep them.
+          QuickCatch bridges classroom theory and shipped work. Free, department-backed curriculums
+          in CS, AI/ML, and engineering — taught alongside the professors who'd otherwise gatekeep
+          them.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Button size="lg" className="bg-ink text-parchment hover:bg-ink/90" asChild>
-            <Link to="/courses">Browse courses <ArrowRight className="ml-1 h-4 w-4" /></Link>
+            <Link to="/courses">
+              Browse courses <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
           </Button>
           <Button size="lg" variant="outline" className="border-ink/30 bg-transparent" asChild>
             <Link to="/faculty">Meet the faculty</Link>
@@ -50,13 +61,19 @@ function Home() {
         <div className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4">
           {STATS.map((s) => (
             <div key={s.label} className="bg-card p-6 sm:p-8">
-              <div className="font-display text-4xl font-medium tracking-tight sm:text-5xl">{s.value}</div>
-              <div className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">{s.label}</div>
+              <div className="font-display text-4xl font-medium tracking-tight sm:text-5xl">
+                {s.value}
+              </div>
+              <div className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="pointer-events-none absolute -right-20 -top-10 select-none font-display text-[28rem] leading-none text-marigold/10 sm:-right-10">Q</div>
+      <div className="pointer-events-none absolute -right-20 -top-10 select-none font-display text-[28rem] leading-none text-marigold/10 sm:-right-10">
+        Q
+      </div>
     </section>
   );
 }

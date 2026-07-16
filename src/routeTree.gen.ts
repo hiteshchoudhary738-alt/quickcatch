@@ -9,17 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FacultyRouteImport } from './routes/faculty'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CodeOfConductRouteImport } from './routes/code-of-conduct'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FacultyRoute = FacultyRouteImport.update({
@@ -35,6 +48,11 @@ const CoursesRoute = CoursesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CodeOfConductRoute = CodeOfConductRouteImport.update({
+  id: '/code-of-conduct',
+  path: '/code-of-conduct',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -57,29 +75,38 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/code-of-conduct': typeof CodeOfConductRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/faculty': typeof FacultyRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/code-of-conduct': typeof CodeOfConductRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/faculty': typeof FacultyRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/admin': typeof AdminRoute
+  '/code-of-conduct': typeof CodeOfConductRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/faculty': typeof FacultyRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -87,47 +114,73 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/admin'
+    | '/code-of-conduct'
     | '/contact'
     | '/courses'
     | '/faculty'
+    | '/privacy'
     | '/profile'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/admin'
+    | '/code-of-conduct'
     | '/contact'
     | '/courses'
     | '/faculty'
+    | '/privacy'
     | '/profile'
+    | '/terms'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/admin'
+    | '/code-of-conduct'
     | '/contact'
     | '/courses'
     | '/faculty'
+    | '/privacy'
     | '/profile'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRoute
+  CodeOfConductRoute: typeof CodeOfConductRoute
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRoute
   FacultyRoute: typeof FacultyRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faculty': {
@@ -149,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/code-of-conduct': {
+      id: '/code-of-conduct'
+      path: '/code-of-conduct'
+      fullPath: '/code-of-conduct'
+      preLoaderRoute: typeof CodeOfConductRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -179,10 +239,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AdminRoute: AdminRoute,
+  CodeOfConductRoute: CodeOfConductRoute,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRoute,
   FacultyRoute: FacultyRoute,
+  PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

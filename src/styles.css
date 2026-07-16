@@ -113,11 +113,23 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     background-image:
-      radial-gradient(circle at 12% 8%, color-mix(in oklab, var(--marigold) 14%, transparent), transparent 45%),
-      radial-gradient(circle at 88% 0%, color-mix(in oklab, var(--ink) 8%, transparent), transparent 40%);
+      radial-gradient(
+        circle at 12% 8%,
+        color-mix(in oklab, var(--marigold) 14%, transparent),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 88% 0%,
+        color-mix(in oklab, var(--ink) 8%, transparent),
+        transparent 40%
+      );
     background-attachment: fixed;
   }
-  h1, h2, h3, h4, .font-display {
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
     font-family: var(--font-display);
     font-feature-settings: "ss01", "ss02";
     letter-spacing: -0.02em;
@@ -145,8 +157,12 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @utility animate-marquee {

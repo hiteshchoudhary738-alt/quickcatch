@@ -16,7 +16,7 @@ import {
   Calendar,
   Lock,
   ArrowRight,
-  GraduationCap
+  GraduationCap,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
@@ -49,7 +49,7 @@ function AdminPortal() {
 
   useEffect(() => {
     if (!user) return;
-    
+
     setLoading(true);
     fetchAdminEnrollments()
       .then((res) => {
@@ -70,13 +70,15 @@ function AdminPortal() {
         <div className="mx-auto max-w-md px-5 text-center">
           <div className="bg-card border border-border/80 rounded-2xl p-8 shadow-xl">
             <Lock className="mx-auto h-16 w-16 text-marigold" />
-            <h1 className="mt-4 font-display text-2xl font-bold text-foreground">Access Restricted</h1>
+            <h1 className="mt-4 font-display text-2xl font-bold text-foreground">
+              Access Restricted
+            </h1>
             <p className="mt-2 text-sm text-muted-foreground">
               Please sign in or register to access the enrollment dashboard.
             </p>
             <div className="mt-6 flex flex-col gap-2">
-              <Button 
-                onClick={() => openAuthModal("signin")} 
+              <Button
+                onClick={() => openAuthModal("signin")}
                 className="w-full bg-marigold text-marigold-foreground hover:bg-marigold/90 font-semibold"
               >
                 Sign In
@@ -93,9 +95,9 @@ function AdminPortal() {
     const course = COURSES.find((c) => c.id === e.courseId);
     const courseTitle = course?.title || "";
     const courseCode = course?.code || "";
-    
+
     const query = searchQuery.toLowerCase();
-    const matchesSearch = 
+    const matchesSearch =
       e.studentName.toLowerCase().includes(query) ||
       e.studentEmail.toLowerCase().includes(query) ||
       e.studentPhone.toLowerCase().includes(query) ||
@@ -116,8 +118,15 @@ function AdminPortal() {
       toast.info("No enrollment data to export.");
       return;
     }
-    const headers = ["Student Name", "Email Address", "Phone Number", "Course ID", "Course Title", "Enrollment Date"];
-    
+    const headers = [
+      "Student Name",
+      "Email Address",
+      "Phone Number",
+      "Course ID",
+      "Course Title",
+      "Enrollment Date",
+    ];
+
     const rows = filteredData.map((e) => {
       const course = COURSES.find((c) => c.id === e.courseId);
       return [
@@ -126,17 +135,20 @@ function AdminPortal() {
         `"${e.studentPhone.replace(/"/g, '""')}"`,
         `"${e.courseId}"`,
         `"${course?.title || e.courseId}"`,
-        `"${new Date(e.createdAt).toLocaleDateString()}"`
+        `"${new Date(e.createdAt).toLocaleDateString()}"`,
       ];
     });
 
-    const csvContent = "\uFEFF" + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
-    
+    const csvContent = "\uFEFF" + [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
+
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `quickcatch_enrollments_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute(
+      "download",
+      `quickcatch_enrollments_${new Date().toISOString().split("T")[0]}.csv`,
+    );
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -156,7 +168,9 @@ function AdminPortal() {
 
   // Copy Bulk Phone Numbers list
   const copyPhoneList = () => {
-    const phones = Array.from(new Set(filteredData.map((e) => e.studentPhone))).filter(p => p !== "N/A").join(", ");
+    const phones = Array.from(new Set(filteredData.map((e) => e.studentPhone)))
+      .filter((p) => p !== "N/A")
+      .join(", ");
     if (!phones) {
       toast.info("No phone numbers to copy.");
       return;
@@ -168,7 +182,6 @@ function AdminPortal() {
   return (
     <section className="bg-secondary/40 min-h-screen py-12">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        
         {/* Header Title */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
           <div>
@@ -176,10 +189,11 @@ function AdminPortal() {
               Student Enrollments Portal
             </h1>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-              Real-time directory of all course signups. Search students, filter by cohort, and download connection sheets.
+              Real-time directory of all course signups. Search students, filter by cohort, and
+              download connection sheets.
             </p>
           </div>
-          
+
           <div className="flex flex-wrap items-center gap-2">
             <Button
               onClick={exportToCSV}
@@ -216,18 +230,24 @@ function AdminPortal() {
               <Users className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Total Enrollments</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                Total Enrollments
+              </p>
               <h3 className="text-2xl font-bold mt-1 text-foreground">{data.length}</h3>
             </div>
           </div>
-          
+
           <div className="bg-card border border-border/80 rounded-2xl p-6 shadow-sm flex items-center gap-4">
             <div className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 p-3.5 rounded-xl">
               <GraduationCap className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Unique Students</p>
-              <h3 className="text-2xl font-bold mt-1 text-foreground">{uniqueStudentEmails.length}</h3>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                Unique Students
+              </p>
+              <h3 className="text-2xl font-bold mt-1 text-foreground">
+                {uniqueStudentEmails.length}
+              </h3>
             </div>
           </div>
 
@@ -236,7 +256,9 @@ function AdminPortal() {
               <BookOpen className="h-6 w-6" />
             </div>
             <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Active Classes</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                Active Classes
+              </p>
               <h3 className="text-2xl font-bold mt-1 text-foreground">
                 {Array.from(new Set(data.map((d) => d.courseId))).length}
               </h3>
@@ -246,7 +268,6 @@ function AdminPortal() {
 
         {/* Filter Controls */}
         <div className="bg-card border border-border/80 rounded-2xl p-5 shadow-sm mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          
           {/* Search bar */}
           <div className="relative flex-1">
             <Search className="absolute left-3.5 top-3 h-4 w-4 text-muted-foreground" />
@@ -261,7 +282,12 @@ function AdminPortal() {
 
           {/* Course filter select */}
           <div className="flex items-center gap-2 min-w-[200px]">
-            <Label htmlFor="courseFilter" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">Filter by Course:</Label>
+            <Label
+              htmlFor="courseFilter"
+              className="text-xs font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap"
+            >
+              Filter by Course:
+            </Label>
             <select
               id="courseFilter"
               value={selectedCourseFilter}
@@ -333,7 +359,13 @@ function AdminPortal() {
                         <td className="px-6 py-4 text-muted-foreground">
                           <span className="inline-flex items-center gap-1.5">
                             <Calendar className="h-3.5 w-3.5 text-muted-foreground/60" />
-                            <span>{new Date(row.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                            <span>
+                              {new Date(row.createdAt).toLocaleDateString(undefined, {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              })}
+                            </span>
                           </span>
                         </td>
                       </tr>
@@ -343,14 +375,15 @@ function AdminPortal() {
               </tbody>
             </table>
           </div>
-          
+
           {/* Table Footer Summary */}
           <div className="border-t border-border bg-background/50 px-6 py-4 text-xs text-muted-foreground flex items-center justify-between">
-            <span>Showing {filteredData.length} of {data.length} total entries</span>
+            <span>
+              Showing {filteredData.length} of {data.length} total entries
+            </span>
             <span>Local PostgreSQL Database connected</span>
           </div>
         </div>
-
       </div>
     </section>
   );

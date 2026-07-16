@@ -5,7 +5,6 @@ const COLLABORATORS = [
   { name: "RGIPT Jais", kind: "University" },
   { name: "HGS Industries", kind: "Industry" },
   { name: "", kind: "Industry" },
-
 ];
 
 function LogoChip({ name, kind }: { name: string; kind: string }) {
@@ -22,7 +21,9 @@ function LogoChip({ name, kind }: { name: string; kind: string }) {
       </span>
       <span className="flex flex-col leading-tight">
         <span className="font-display text-base font-medium text-foreground">{name}</span>
-        <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{kind}</span>
+        <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          {kind}
+        </span>
       </span>
     </div>
   );
@@ -50,8 +51,7 @@ export function Collaborators() {
       <div
         className="group relative mt-12 overflow-hidden py-8"
         style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           WebkitMaskImage:
             "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}

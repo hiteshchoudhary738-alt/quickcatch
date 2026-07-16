@@ -1,6 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -143,8 +149,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           courseId,
           name,
           email,
-          phone
-        }
+          phone,
+        },
       });
 
       const updated = [...enrolledCourses, courseId];
@@ -227,7 +233,15 @@ interface AuthDialogProps {
   onRegister: (name: string, email: string, password?: string, phone?: string) => Promise<void>;
 }
 
-function AuthDialog({ open, tab, setTab, isLoading, onClose, onLogin, onRegister }: AuthDialogProps) {
+function AuthDialog({
+  open,
+  tab,
+  setTab,
+  isLoading,
+  onClose,
+  onLogin,
+  onRegister,
+}: AuthDialogProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -280,19 +294,21 @@ function AuthDialog({ open, tab, setTab, isLoading, onClose, onLogin, onRegister
         <div className="flex border-b border-border my-4">
           <button
             onClick={() => setTab("signin")}
-            className={`flex-1 pb-2.5 text-sm font-medium transition-colors border-b-2 -mb-[2px] ${tab === "signin"
-              ? "border-marigold text-foreground font-semibold"
-              : "border-transparent text-muted-foreground hover:text-foreground"
-              }`}
+            className={`flex-1 pb-2.5 text-sm font-medium transition-colors border-b-2 -mb-[2px] ${
+              tab === "signin"
+                ? "border-marigold text-foreground font-semibold"
+                : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}
           >
             Sign In
           </button>
           <button
             onClick={() => setTab("register")}
-            className={`flex-1 pb-2.5 text-sm font-medium transition-colors border-b-2 -mb-[2px] ${tab === "register"
-              ? "border-marigold text-foreground font-semibold"
-              : "border-transparent text-muted-foreground hover:text-foreground"
-              }`}
+            className={`flex-1 pb-2.5 text-sm font-medium transition-colors border-b-2 -mb-[2px] ${
+              tab === "register"
+                ? "border-marigold text-foreground font-semibold"
+                : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}
           >
             Register
           </button>
@@ -348,7 +364,11 @@ function AuthDialog({ open, tab, setTab, isLoading, onClose, onLogin, onRegister
             <div className="flex justify-between items-center">
               <Label htmlFor="password">Password</Label>
               {tab === "signin" && (
-                <button type="button" className="text-xs text-marigold hover:underline" onClick={() => toast.info("Password reset link simulated!")}>
+                <button
+                  type="button"
+                  className="text-xs text-marigold hover:underline"
+                  onClick={() => toast.info("Password reset link simulated!")}
+                >
                   Forgot?
                 </button>
               )}

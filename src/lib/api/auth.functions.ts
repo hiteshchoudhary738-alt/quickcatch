@@ -25,7 +25,7 @@ export const registerUser = createServerFn({ method: "POST" })
       email: z.string().email("Invalid email address"),
       password: z.string().min(6, "Password must be at least 6 characters"),
       phone: z.string().optional(),
-    })
+    }),
   )
   .handler(async ({ data }) => {
     const { name, email, password, phone } = data;
@@ -66,7 +66,7 @@ export const loginUser = createServerFn({ method: "POST" })
     z.object({
       email: z.string().email("Invalid email address"),
       password: z.string().min(1, "Password is required"),
-    })
+    }),
   )
   .handler(async ({ data }) => {
     const { email, password } = data;
@@ -119,7 +119,7 @@ export const enrollInCourse = createServerFn({ method: "POST" })
       name: z.string().optional(),
       email: z.string().optional(),
       phone: z.string().optional(),
-    })
+    }),
   )
   .handler(async ({ data }) => {
     const { userId, courseId, name, email, phone } = data;
@@ -164,18 +164,20 @@ export const enrollInCourse = createServerFn({ method: "POST" })
     // Fetch updated user to return back to frontend state
     const updatedUser = await db.user.findUnique({
       where: { id: userId },
-      select: { id: true, name: true, email: true, phone: true }
+      select: { id: true, name: true, email: true, phone: true },
     });
 
-    return { 
-      success: true, 
-      enrollment, 
-      user: updatedUser ? {
-        id: updatedUser.id,
-        name: updatedUser.name,
-        email: updatedUser.email,
-        phone: updatedUser.phone ?? undefined,
-      } : undefined
+    return {
+      success: true,
+      enrollment,
+      user: updatedUser
+        ? {
+            id: updatedUser.id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            phone: updatedUser.phone ?? undefined,
+          }
+        : undefined,
     };
   });
 
@@ -185,7 +187,7 @@ export const unenrollFromCourse = createServerFn({ method: "POST" })
     z.object({
       userId: z.string(),
       courseId: z.string(),
-    })
+    }),
   )
   .handler(async ({ data }) => {
     const { userId, courseId } = data;
@@ -203,34 +205,33 @@ export const unenrollFromCourse = createServerFn({ method: "POST" })
   });
 
 // Server function for admin dashboard to retrieve all signups/enrollments
-export const fetchAdminEnrollments = createServerFn({ method: "GET" })
-  .handler(async () => {
-    const enrollments = await db.enrollment.findMany({
-      include: {
-        user: {
-          select: {
-            name: true,
-            email: true,
-            phone: true,
-          },
+export const fetchAdminEnrollments = createServerFn({ method: "GET" }).handler(async () => {
+  const enrollments = await db.enrollment.findMany({
+    include: {
+      user: {
+        select: {
+          name: true,
+          email: true,
+          phone: true,
         },
       },
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
-
-    return {
-      enrollments: enrollments.map((e) => ({
-        id: e.id,
-        courseId: e.courseId,
-        createdAt: e.createdAt.toISOString(),
-        studentName: e.user.name,
-        studentEmail: e.user.email,
-        studentPhone: e.user.phone ?? "N/A",
-      })),
-    };
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
+
+  return {
+    enrollments: enrollments.map((e) => ({
+      id: e.id,
+      courseId: e.courseId,
+      createdAt: e.createdAt.toISOString(),
+      studentName: e.user.name,
+      studentEmail: e.user.email,
+      studentPhone: e.user.phone ?? "N/A",
+    })),
+  };
+});
 
 // Server function to fetch course progress
 export const fetchCourseProgress = createServerFn({ method: "GET" })
@@ -238,7 +239,7 @@ export const fetchCourseProgress = createServerFn({ method: "GET" })
     z.object({
       userId: z.string(),
       courseId: z.string(),
-    })
+    }),
   )
   .handler(async ({ data }) => {
     const { userId, courseId } = data;
@@ -262,7 +263,7 @@ export const updateCourseProgress = createServerFn({ method: "POST" })
       userId: z.string(),
       courseId: z.string(),
       completedWeeks: z.array(z.string()),
-    })
+    }),
   )
   .handler(async ({ data }) => {
     const { userId, courseId, completedWeeks } = data;
@@ -284,4 +285,3 @@ export const updateCourseProgress = createServerFn({ method: "POST" })
     });
     return { success: true, progress };
   });
-
