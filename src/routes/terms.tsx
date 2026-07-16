@@ -80,7 +80,7 @@ function TermsOfService() {
           <TermsSection icon={BookOpen} title="2. Free & Open Curriculum">
             <p>
               All course descriptions, syllabus, exercises, and code repositories curated by
-              QuickCatch are free and open-source under permissive community licenses unless stated
+              QuickCatch are free and under permissive community licenses unless stated
               otherwise.
             </p>
             <p>
