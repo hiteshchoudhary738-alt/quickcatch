@@ -47,15 +47,15 @@ export function Footer() {
   const platformItems: FooterItem[] = [
     { label: "Courses", to: "/courses" },
     { label: "Faculty", to: "/faculty" },
-    { label: "Cohorts" },
-    { label: "Open syllabus" },
+    { label: "Cohorts", to: "/courses" },
+    { label: "Open syllabus", to: "/courses" },
   ];
 
   const communityItems: FooterItem[] = [
     { label: "Student board", to: "/contact" },
-    { label: "Mentorship" },
-    { label: "Alumni" },
-    { label: "Discord" },
+    { label: "Mentorship", to: "/contact" },
+    { label: "Alumni", to: "/contact" },
+    { label: "Discord", to: "/contact" },
   ];
 
   const legalItems: FooterItem[] = [
