@@ -227,7 +227,7 @@ function Courses() {
             </h1>
           </div>
           <p className="max-w-md text-muted-foreground">
-            Tap any row to view the weekly syllabus, complete exercises, and enroll.
+            Tap any row to view the weekly syllabus, and enroll.
           </p>
         </div>
         <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-card">

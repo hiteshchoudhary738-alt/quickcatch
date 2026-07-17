@@ -73,7 +73,7 @@ export function Footer() {
               Quick<span className="text-marigold">Catch</span>
             </span>
             <p className="mt-3 text-sm text-parchment/60">
-              A student-run academic portal. Faculty-curated. Free, forever.
+              A student-run academic portal. Faculty-curated.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-10 text-sm sm:grid-cols-3">
