@@ -44,7 +44,7 @@ function Home() {
           you wish you had.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-          QuickCatch bridges classroom theory and shipped work. Free, department-backed curriculums
+          QuickCatch bridges classroom theory and shipped work. Department-backed curriculums
           in CS, AI/ML, and engineering — taught alongside the professors who'd otherwise gatekeep
           them.
         </p>
