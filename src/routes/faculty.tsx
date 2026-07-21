@@ -20,20 +20,21 @@ export const Route = createFileRoute("/faculty")({
 
 const FACULTY = [
   {
-    name: "Dr. Manish Bhanu",
-    title: "Assistant Professor, Computer Science & Engineering, RGIPT",
+    name: "Faculty of Computer Science & Engineering",
+    title: "Rajiv Gandhi Institute of Petroleum Technology (RGIPT)",
     field: "AI & Machine Learning",
-    bio: "Assistant Professor at RGIPT, Jais. He completed his Ph.D. and M.Tech from IIT Patna and served as a Research Fellow at NUS, Singapore. His research interests include spatio-temporal data mining, traffic prediction, crisis informatics, and misinformation detection.",
-    tags: ["Traffic Prediction", "Spatio-Temporal AI", "Crisis Informatics", "Misinformation Detection"],
-    initials: "MB"
+    bio: "Faculty members at RGIPT specialize in core computer science, focusing heavily on spatio-temporal data mining, intelligent transportation systems, and crisis informatics.",
+    tags: ["Spatio-Temporal AI", "Traffic Prediction", "Crisis Informatics", "Misinformation Detection"],
+    initials: "RGIPT CSE"
+  
   },
   {
-    name: "Dr. Saswata Roy",
-    title: "Assistant Professor, Information Technology, ABV-IIITM Gwalior",
-    field: "AI & Machine Learning",
-    bio: "Assistant Professor in the Department of Information Technology at ABV-IIITM Gwalior. He earned his Ph.D. from IIT Patna. His research focuses on rumor verification, explainable AI for multimodal misinformation detection, and social media analytics.",
-    tags: ["Rumor Verification", "Explainable AI", "Deep Learning", "Crisis Informatics"],
-    initials: "SR"
+    name: "Department of Information Technology",
+    title: "ABV-IIITM Gwalior",
+    field: "AI & Social Media Analytics",
+    bio: "Faculty at ABV-IIITM Gwalior focus on social media analytics, rumor verification, explainable AI (XAI), and deep learning applications in multimodal data.",
+    tags: ["Rumor Verification", "Explainable AI", "Social Media Analytics", "Deep Learning"],
+    initials: "IIITM IT"
   },
   {
     name: "Department of Computer Science & Engineering",
@@ -41,7 +42,7 @@ const FACULTY = [
     field: "AI, Vision & Systems",
     bio: "Researchers and educators at IIT Roorkee lead projects across computer vision, deep learning theory, natural language processing, and high-performance computing.",
     tags: ["Computer Vision", "Deep Learning", "NLP", "High-Performance Computing"],
-    initials: "IITR"
+    initials: "IITR CSE"
   },
   {
     name: "School of Computing & Electrical Engineering",
@@ -49,7 +50,7 @@ const FACULTY = [
     field: "Applied AI & Cyber-Physical Systems",
     bio: "Faculty expertise at IIT Mandi spans signal processing, machine learning for healthcare, speech recognition, and cyber-physical systems.",
     tags: ["Signal Processing", "Healthcare AI", "Speech Recognition", "Cyber-Physical Systems"],
-    initials: "IITM"
+    initials: "IITM CSE"
   },
   {
     name: "Department of Earth Sciences (Geophysics Section)",
@@ -57,7 +58,15 @@ const FACULTY = [
     field: "Applied Geophysics & Earth Systems",
     bio: "Faculty members in Geophysics at IIT Roorkee focus on seismic processing for hydrocarbon exploration, earthquake hazard assessment, magnetotellurics, and AI applications in geophysical signal processing.",
     tags: ["Seismic Signal Processing", "Earthquake Hazards", "Geophysical Inversion", "Rock Physics"],
-    initials: "IITR"
+    initials: "IITR GEO"
+  },
+  {
+    name: "Department of Petroleum Engineering & Geoengineering (Geophysics Section)",
+    title: "Rajiv Gandhi Institute of Petroleum Technology (RGIPT)",
+    field: "Petroleum Geophysics & Geoscience Engineering",
+    bio: "Faculty in Geoengineering at RGIPT specialize in seismic methods, formation evaluation, reservoir characterization, petroleum geomechanics, and geophysical signal processing for energy exploration.",
+    tags: ["Seismic Methods", "Petroleum Geophysics", "Reservoir Characterization", "Geophysical Signal Processing"],
+    initials: "RGIPT PEG"
   }
   
 ];
