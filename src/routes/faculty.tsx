@@ -41,7 +41,7 @@ const FACULTY = [
     field: "AI, Vision & Systems",
     bio: "Researchers and educators at IIT Roorkee lead projects across computer vision, deep learning theory, natural language processing, and high-performance computing.",
     tags: ["Computer Vision", "Deep Learning", "NLP", "High-Performance Computing"],
-    initials: "TR"
+    initials: "IITR"
   },
   {
     name: "School of Computing & Electrical Engineering",
@@ -49,7 +49,7 @@ const FACULTY = [
     field: "Applied AI & Cyber-Physical Systems",
     bio: "Faculty expertise at IIT Mandi spans signal processing, machine learning for healthcare, speech recognition, and cyber-physical systems.",
     tags: ["Signal Processing", "Healthcare AI", "Speech Recognition", "Cyber-Physical Systems"],
-    initials: "TM"
+    initials: "IITM"
   }
   
 ];
