@@ -50,6 +50,14 @@ const FACULTY = [
     bio: "Faculty expertise at IIT Mandi spans signal processing, machine learning for healthcare, speech recognition, and cyber-physical systems.",
     tags: ["Signal Processing", "Healthcare AI", "Speech Recognition", "Cyber-Physical Systems"],
     initials: "IITM"
+  },
+  {
+    name: "Department of Earth Sciences (Geophysics Section)",
+    title: "Indian Institute of Technology Roorkee (IIT Roorkee)",
+    field: "Applied Geophysics & Earth Systems",
+    bio: "Faculty members in Geophysics at IIT Roorkee focus on seismic processing for hydrocarbon exploration, earthquake hazard assessment, magnetotellurics, and AI applications in geophysical signal processing.",
+    tags: ["Seismic Signal Processing", "Earthquake Hazards", "Geophysical Inversion", "Rock Physics"],
+    initials: "IITR"
   }
   
 ];
