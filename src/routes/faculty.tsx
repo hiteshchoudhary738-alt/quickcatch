@@ -21,20 +21,21 @@ export const Route = createFileRoute("/faculty")({
 const FACULTY = [
   {
     name: "Dr. Manish Bhanu",
-    title: "Assistant Professor, Computer Science, RGIPT",
+    title: "Assistant Professor, Computer Science & Engineering, RGIPT",
     field: "AI & Machine Learning",
-    bio: "",
-    tags: ["Deep Learning", "NLP", "Alignment"],
-    initials: "MB",
+    bio: "Assistant Professor at RGIPT, Jais. He completed his Ph.D. and M.Tech from IIT Patna and served as a Research Fellow at NUS, Singapore. His research interests include spatio-temporal data mining, traffic prediction, crisis informatics, and misinformation detection.",
+    tags: ["Traffic Prediction", "Spatio-Temporal AI", "Crisis Informatics", "Misinformation Detection"],
+    initials: "MB"
   },
   {
     name: "Dr. Saswata Roy",
-    title: "Assistant Professor, Information Technology, IIITM",
+    title: "Assistant Professor, Information Technology, ABV-IIITM Gwalior",
     field: "AI & Machine Learning",
-    bio: "",
-    tags: ["Deep Learning", "NLP", "Alignment"],
-    initials: "SR",
-  },
+    bio: "Assistant Professor in the Department of Information Technology at ABV-IIITM Gwalior. He earned his Ph.D. from IIT Patna. His research focuses on rumor verification, explainable AI for multimodal misinformation detection, and social media analytics.",
+    tags: ["Rumor Verification", "Explainable AI", "Deep Learning", "Crisis Informatics"],
+    initials: "SR"
+  }
+  
 ];
 
 function Faculty() {
