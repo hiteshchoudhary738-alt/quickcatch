@@ -34,6 +34,22 @@ const FACULTY = [
     bio: "Assistant Professor in the Department of Information Technology at ABV-IIITM Gwalior. He earned his Ph.D. from IIT Patna. His research focuses on rumor verification, explainable AI for multimodal misinformation detection, and social media analytics.",
     tags: ["Rumor Verification", "Explainable AI", "Deep Learning", "Crisis Informatics"],
     initials: "SR"
+  },
+  {
+    name: "Department of Computer Science & Engineering",
+    title: "Indian Institute of Technology Roorkee (IIT Roorkee)",
+    field: "AI, Vision & Systems",
+    bio: "Researchers and educators at IIT Roorkee lead projects across computer vision, deep learning theory, natural language processing, and high-performance computing.",
+    tags: ["Computer Vision", "Deep Learning", "NLP", "High-Performance Computing"],
+    initials: "TR"
+  },
+  {
+    name: "School of Computing & Electrical Engineering",
+    title: "Indian Institute of Technology Mandi (IIT Mandi)",
+    field: "Applied AI & Cyber-Physical Systems",
+    bio: "Faculty expertise at IIT Mandi spans signal processing, machine learning for healthcare, speech recognition, and cyber-physical systems.",
+    tags: ["Signal Processing", "Healthcare AI", "Speech Recognition", "Cyber-Physical Systems"],
+    initials: "TM"
   }
   
 ];
